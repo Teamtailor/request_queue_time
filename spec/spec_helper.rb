@@ -1,11 +1,12 @@
+require "dotenv"
+Dotenv.load(".env.test")
+
 require "bundler/setup"
 require_relative "support/time_helper"
 
 require "request_queue_time/middleware"
 require "rails"
 require "sidekiq/api"
-
-ENV["RAILS_ENV"] ||= "test"
 
 RSpec.configure do |config|
   Rails.logger = ActiveSupport::TaggedLogging.new(Logger.new($stdout))
