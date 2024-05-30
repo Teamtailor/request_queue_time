@@ -11,5 +11,6 @@ gem "rspec", "~> 3.0"
 
 gem "sidekiq"
 gem "rails"
+gem "dotenv"
 
 gem "standard", "~> 1.3"

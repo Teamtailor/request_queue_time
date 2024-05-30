@@ -1,5 +1,5 @@
 require "request_queue_time/middleware/version"
-require_relative "../services/auto_scaling_metrics/reporter"
+require "services/auto_scaling_metrics"
 
 module RequestQueueTime
   class Middleware
