@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe AutoScalingMetrics::Reporter do
+RSpec.describe RequestQueueTime::AutoScalingMetrics::Reporter do
   let(:subject) { described_class.instance }
 
   before do
