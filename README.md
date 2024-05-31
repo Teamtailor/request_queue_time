@@ -1,8 +1,6 @@
 # RequestQueueTime::Middleware
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/request_queue_time/middleware`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem gives us an indication of the time that a request/job is spent waiting in line to be processed and with that gauge we scale our ECS cluster tasks up and down. A lot of the logic was borrowed from Judoscales ruby gem, but at the time of writing the code we were unable to utilise Judoscale on ECS, however now that the gem is being extracted this is something that is now a product that they offer. However we are unsure about the financial gains that can be gained from using the service, vs our own solution.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-The following environment variables are required:
+The following environment variables are required for the metric that is reported to cloudwatch:
 
 ```rb
     ENV["APP_NAME"]
@@ -37,13 +35,14 @@ For the Reporter to run, you need to have the following flag set as well:
 
 If you want statsd measurements you need to have a the constant `StatsdDdog` defined.
 
-Add the middleware to your middlerwares like so:
+A Railtie will insert the middleware first in your stack, but if there are issues or you need more control of the middleware placements you can use the configuration below:
 
 ```rb
     Rails.configuration.middleware.insert_before 0, RequestQueueTimeMiddleware
 ```
 
-And add the following to the application reloader:
+The following is required for the sidekiq portion to work though:
+<!-- And add the following to the application reloader: -->
 
 ```rb
 Rails.application.reloader.to_prepare do
@@ -54,14 +53,6 @@ end
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` or `bundle exec rake` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/bjonord/request-queue-time-middleware. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Code of Conduct
-
-Everyone interacting in the Request::Queue::Time::Middleware project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/bjonord/request-queue-time-middleware/blob/master/CODE_OF_CONDUCT.md).
