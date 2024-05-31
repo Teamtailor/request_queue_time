@@ -1,3 +1,4 @@
+require "request_queue_time/middleware"
 require "services/auto_scaling_metrics"
 
 module RequestQueueTime

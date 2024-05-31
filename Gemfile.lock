@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    request-queue-time-middleware (0.1.0)
+    request_queue_time (0.1.0)
       aws-sdk-cloudwatch
+      dogstatsd-ruby
 
 GEM
   remote: https://rubygems.org/
@@ -83,7 +84,7 @@ GEM
       tzinfo (~> 2.0)
     ast (2.4.2)
     aws-eventstream (1.3.0)
-    aws-partitions (1.929.0)
+    aws-partitions (1.937.0)
     aws-sdk-cloudwatch (1.91.0)
       aws-sdk-core (~> 3, >= 3.193.0)
       aws-sigv4 (~> 1.1)
@@ -102,6 +103,7 @@ GEM
     crass (1.0.6)
     date (3.3.4)
     diff-lcs (1.5.1)
+    dogstatsd-ruby (5.6.1)
     dotenv (3.1.2)
     drb (2.2.1)
     erubi (1.12.0)
@@ -268,7 +270,7 @@ DEPENDENCIES
   dotenv
   rails
   rake (~> 13.0)
-  request-queue-time-middleware!
+  request_queue_time!
   rspec (~> 3.0)
   sidekiq
   standard (~> 1.3)

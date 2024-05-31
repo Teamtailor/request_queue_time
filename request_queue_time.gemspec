@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "request_queue_time/middleware/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "request-queue-time-middleware"
+  spec.name = "request_queue_time"
   spec.version = RequestQueueTime::Middleware::VERSION
   spec.authors = ["Jonas Brusman", "Björn Nordstrand"]
   spec.homepage = "https://github.com/teamtailor/request-queue-time-middleware"
@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "aws-sdk-cloudwatch"
+  spec.add_dependency "dogstatsd-ruby"
 
   spec.add_development_dependency "bundler", "~> 2.4"
 end
