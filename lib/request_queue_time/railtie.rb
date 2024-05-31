@@ -1,7 +1,7 @@
 module RequestQueueTime
   class Railtie < Rails::Railtie
-    initializer "request_queue_time.configure_rails_initialization" do |app|
-      app.middleware.insert_before 0, RequestQueueTime::Middleware
+    initializer "RequestQueueTime.request_middleware" do |app|
+      app.middleware.insert_before Rack::Runtime, RequestQueueTime::Middleware
     end
   end
 end
