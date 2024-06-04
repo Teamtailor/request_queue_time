@@ -6,12 +6,12 @@ Gem::Specification.new do |spec|
   spec.name = "request_queue_time"
   spec.version = RequestQueueTime::Middleware::VERSION
   spec.authors = ["Jonas Brusman", "Björn Nordstrand"]
-  spec.homepage = "https://github.com/teamtailor/request-queue-time-middleware"
+  spec.homepage = "https://github.com/teamtailor/request_queue_time"
   spec.summary = "Used by ECS stacks for Teamtailor"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/teamtailor/request-queue-time-middleware"
-  spec.metadata["changelog_uri"] = "https://github.com/teamtailor/request-queue-time-middleware/blob/main/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/teamtailor/request_queue_time"
+  spec.metadata["changelog_uri"] = "https://github.com/teamtailor/request_queue_time/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
