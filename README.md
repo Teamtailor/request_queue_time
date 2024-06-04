@@ -7,16 +7,14 @@ This gem gives us an indication of the time that a request/job is spent waiting 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'request-queue-time-middleware'
+source "https://rubygems.pkg.github.com/teamtailor" do
+  gem "request_queue_time", "0.1.0"
+end
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install request-queue-time-middleware
 
 ## Usage
 
@@ -38,7 +36,7 @@ If you want statsd measurements you need to have a the constant `StatsdDdog` def
 A Railtie will insert the middleware first in your stack, but if there are issues or you need more control of the middleware placements you can use the configuration below:
 
 ```rb
-    Rails.configuration.middleware.insert_before 0, RequestQueueTimeMiddleware
+    Rails.configuration.middleware.insert_before 0, RequestQueueTime::Middleware
 ```
 
 The following is required for the sidekiq portion to work though:
