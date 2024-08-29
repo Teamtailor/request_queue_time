@@ -14,7 +14,7 @@ module RequestQueueTime
 
       unless metrics.ignore?
         tags = ["request_method:#{env["REQUEST_METHOD"]}"]
-        if Object.const_defined?(:StatsdDog)
+        if Object.const_defined?(:StatsdDdog)
           StatsdDdog.timing("rails.request.queue_time", metrics.queue_time, tags:)
           StatsdDdog.timing("rails.request.queue_time.network_time", metrics.network_time, tags:)
         end
