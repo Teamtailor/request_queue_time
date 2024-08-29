@@ -21,8 +21,14 @@ And then execute:
 The following environment variables are required for the metric that is reported to cloudwatch:
 
 ```rb
-    ENV["APP_NAME"]
-    ENV["SERVER_ENVIRONMENT"]
+    ENV["DD_SERVICE"]
+    ENV["DD_ENV"]
+```
+
+For example:
+```rb
+    ENV["DD_SERVICE"] = "teamtailor"
+    ENV["DD_ENV"] = "eu-cyan"
 ```
 
 For the Reporter to run, you need to have the following flag set as well:

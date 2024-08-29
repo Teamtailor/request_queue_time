@@ -12,8 +12,8 @@ module RequestQueueTime
       include Singleton
 
       DIMENSIONS = [
-        {name: "service", value: ENV["APP_NAME"]},
-        {name: "environment", value: ENV["SERVER_ENVIRONMENT"]}
+        {name: "service", value: ENV["DD_SERVICE"]},
+        {name: "environment", value: ENV["DD_ENV"]}
       ]
 
       attr_accessor :collector
