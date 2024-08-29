@@ -7,9 +7,7 @@ This gem gives us an indication of the time that a request/job is spent waiting 
 Add this line to your application's Gemfile:
 
 ```ruby
-source "https://rubygems.pkg.github.com/teamtailor" do
-  gem "request_queue_time", "0.1.0"
-end
+gem "request_queue_time", git: "https://github.com/Teamtailor/request_queue_time.git", tag: "v0.1.1"
 ```
 
 And then execute:
