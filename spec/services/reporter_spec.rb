@@ -23,8 +23,8 @@ RSpec.describe RequestQueueTime::AutoScalingMetrics::Reporter do
         unit: "Milliseconds",
         timestamp: Time.now,
         dimensions: [
-          {name: "service", value: ENV["APP_NAME"]},
-          {name: "environment", value: ENV["SERVER_ENVIRONMENT"]}
+          {name: "service", value: ENV["DD_SERVICE"]},
+          {name: "environment", value: ENV["DD_ENV"]}
         ]
       )
     end
@@ -45,8 +45,8 @@ RSpec.describe RequestQueueTime::AutoScalingMetrics::Reporter do
           {
             metric_name: "request_queue_time",
             dimensions: [
-              {name: "service", value: ENV["APP_NAME"]},
-              {name: "environment", value: ENV["SERVER_ENVIRONMENT"]}
+              {name: "service", value: ENV["DD_SERVICE"]},
+              {name: "environment", value: ENV["DD_ENV"]}
             ],
             timestamp: Time.now,
             value: 42,
@@ -74,8 +74,8 @@ RSpec.describe RequestQueueTime::AutoScalingMetrics::Reporter do
           {
             metric_name: "request_queue_time",
             dimensions: [
-              {name: "service", value: ENV["APP_NAME"]},
-              {name: "environment", value: ENV["SERVER_ENVIRONMENT"]}
+              {name: "service", value: ENV["DD_SERVICE"]},
+              {name: "environment", value: ENV["DD_ENV"]}
             ],
             timestamp: Time.now,
             value: 42,
