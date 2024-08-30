@@ -39,8 +39,14 @@ If you want statsd measurements you need to have a the constant `StatsdDdog` def
 
 A Railtie will insert the middleware first in your stack, but if there are issues or you need more control of the middleware placements you can use the configuration below:
 
+If you want it first in the stack:
 ```rb
-    Rails.configuration.middleware.insert_before 0, RequestQueueTime::Middleware
+  Rails.configuration.middleware.insert_before 0, RequestQueueTime::Middleware
+```
+
+If you want to use it like it is in the railtie:
+```rb
+  Rails.configuration.middleware.insert_before Rack::Runtime, RequestQueueTime::Middleware
 ```
 
 The following is required for the sidekiq portion to work though:
@@ -49,7 +55,7 @@ The following is required for the sidekiq portion to work though:
 ```rb
 Rails.application.reloader.to_prepare do
 ...
-  AutoScalingMetrics::SidekiqReporter.enable if ENV["ECS_SETUP"]
+  RequestQueueTime::AutoScalingMetrics::SidekiqReporter.enable if ENV["ECS_SETUP"]
 end
 ```
 
