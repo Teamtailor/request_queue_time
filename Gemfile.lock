@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    request_queue_time (0.1.0)
+    request_queue_time (0.1.2)
       aws-sdk-cloudwatch
       dogstatsd-ruby
 
