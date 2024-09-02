@@ -44,11 +44,6 @@ If you want it first in the stack:
   Rails.configuration.middleware.insert_before 0, RequestQueueTime::Middleware
 ```
 
-If you want to use it like it is in the railtie:
-```rb
-  Rails.configuration.middleware.insert_before Rack::Runtime, RequestQueueTime::Middleware
-```
-
 The following is required for the sidekiq portion to work though:
 <!-- And add the following to the application reloader: -->
 
