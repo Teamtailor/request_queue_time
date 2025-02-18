@@ -16,9 +16,10 @@ RSpec.describe RequestQueueTime::AutoScalingMetrics::SidekiqReporter do
 
   describe ".collect_metrics" do
     it "adds a metric for each Sidekiq queue" do
-      queue1 = double(name: "queue1", latency: 10)
-      queue2 = double(name: "queue2", latency: 20)
-      allow(Sidekiq::Queue).to receive(:all).and_return([queue1, queue2])
+      queue1 = double(name: "queue1", latency: 10, paused?: false)
+      queue2 = double(name: "queue2", latency: 15, paused?: true)
+      queue3 = double(name: "queue3", latency: 20, paused?: false)
+      allow(Sidekiq::Queue).to receive(:all).and_return([queue1, queue2, queue3])
 
       expect(RequestQueueTime::AutoScalingMetrics::Reporter).to receive(:add_metric).with(
         metric_name: "sidekiq_queue_latency",
@@ -28,9 +29,15 @@ RSpec.describe RequestQueueTime::AutoScalingMetrics::SidekiqReporter do
       )
       expect(RequestQueueTime::AutoScalingMetrics::Reporter).to receive(:add_metric).with(
         metric_name: "sidekiq_queue_latency",
-        value: 20,
+        value: 0,
         unit: "Seconds",
         dimensions: [{name: "queue_name", value: "queue2"}]
+      )
+      expect(RequestQueueTime::AutoScalingMetrics::Reporter).to receive(:add_metric).with(
+        metric_name: "sidekiq_queue_latency",
+        value: 20,
+        unit: "Seconds",
+        dimensions: [{name: "queue_name", value: "queue3"}]
       )
 
       described_class.collect_metrics
