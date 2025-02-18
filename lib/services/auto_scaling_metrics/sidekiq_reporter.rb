@@ -15,7 +15,7 @@ module RequestQueueTime
         Sidekiq::Queue.all.each do |queue|
           AutoScalingMetrics::Reporter.add_metric(
             metric_name: "sidekiq_queue_latency",
-            value: queue.latency,
+            value: queue.paused? ? 0 : queue.latency,
             unit: "Seconds",
             dimensions: [{name: "queue_name", value: queue.name}]
           )
