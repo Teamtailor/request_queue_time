@@ -1,0 +1,19 @@
+steps:
+  - label: ":rspec: Ruby 4.0.5"
+    agents:
+      queue: "hetzner"
+    plugins:
+      - docker#v5.3.0:
+          image: "public.ecr.aws/docker/library/ruby:4.0.5"
+          workdir: /app
+          volumes:
+            - ".:/app"
+          command:
+            - /bin/bash
+            - -e
+            - -c
+            - |
+              echo "--- :bundler: bundle install"
+              bundle install
+              echo "--- :rspec: bundle exec rake"
+              bundle exec rake
