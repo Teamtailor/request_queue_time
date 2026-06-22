@@ -24,6 +24,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "aws-sdk-cloudwatch"
   spec.add_dependency "dogstatsd-ruby"
-
-  spec.add_development_dependency "bundler", "~> 2.4"
 end
