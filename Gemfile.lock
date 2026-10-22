@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    request_queue_time (0.3.0)
+    request_queue_time (0.3.1)
       aws-sdk-cloudwatch
       dogstatsd-ruby
 
@@ -103,7 +103,7 @@ GEM
     builder (3.3.0)
     concurrent-ruby (1.3.7)
     connection_pool (3.0.2)
-    crass (1.0.7)
+    crass (1.0.8)
     date (3.5.1)
     diff-lcs (1.6.2)
     dogstatsd-ruby (5.7.1)
@@ -339,7 +339,7 @@ CHECKSUMS
   bundler (4.0.13) sha256=19f08be7f27022cf0b89f27da0b044ae075e8270a9ef44ad248a932614e1ca3b
   concurrent-ruby (1.3.7) sha256=4412caec3a5ea2e5fdc52076724c071a81f2c0593d83b2ac8cbb8ca63b3151b0
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
-  crass (1.0.7) sha256=94868719948664c89ddcaf0a37c65048413dfcb1c869470a5f7a7ceb5390b295
+  crass (1.0.8) sha256=7a0145c7a2c59f8e7923b3a69ce819c444823a00a5127d805298fea13be24efe
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
   diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
   dogstatsd-ruby (5.7.1) sha256=d2e211f9635d6bbe773e152e00fd4cb9f165d26e10356dbef8f917f7a9e5d58c
@@ -395,7 +395,7 @@ CHECKSUMS
   redis-client (0.30.0) sha256=743f11ed42f0a41a0341554087b077479fec7e2d47a7c123fd90a12c0db5e477
   regexp_parser (2.12.0) sha256=35a916a1d63190ab5c9009457136ae5f3c0c7512d60291d0d1378ba18ce08ebb
   reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
-  request_queue_time (0.3.0)
+  request_queue_time (0.3.1)
   rspec (3.13.2) sha256=206284a08ad798e61f86d7ca3e376718d52c0bc944626b2349266f239f820587
   rspec-core (3.13.6) sha256=a8823c6411667b60a8bca135364351dda34cd55e44ff94c4be4633b37d828b2d
   rspec-expectations (3.13.5) sha256=33a4d3a1d95060aea4c94e9f237030a8f9eae5615e9bd85718fe3a09e4b58836
