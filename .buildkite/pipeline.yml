@@ -1,10 +1,10 @@
 steps:
-  - label: ":rspec: Ruby 4.0.5"
+  - label: ":rspec: Ruby 4.0.10"
     agents:
       queue: "hetzner"
     plugins:
       - docker#v5.3.0:
-          image: "public.ecr.aws/docker/library/ruby:4.0.5"
+          image: "public.ecr.aws/docker/library/ruby:4.0.10"
           workdir: /app
           volumes:
             - ".:/app"
